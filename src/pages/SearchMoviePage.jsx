@@ -4,8 +4,8 @@ const SearchMovie = () => {
   return (
     <>
       <form className={s.searchForm}>
-        <label htmlFor="">
-          <input type="text" />
+        <label className={s.searchLabel}>
+          <input className={s.searchInput} type="text" />
         </label>
         <button className={s.searchButton} type="submit">
           Search
