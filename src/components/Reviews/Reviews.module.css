@@ -1,0 +1,13 @@
+.reviews {
+  padding: 40px;
+}
+.reviewsItem {
+  border: 1px solid #ffffff61;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  padding: 30px 40px;
+}
+
+.reviewsText {
+  font-size: 14px;
+}

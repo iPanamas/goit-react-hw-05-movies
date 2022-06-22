@@ -4,7 +4,7 @@ width: 500px;
 }
 .homeItem {
   margin-bottom: 10px;
-  transition: transform 150ms linear;
+  transition: transform 100ms linear;
 }
 
 .homeItem:hover {
@@ -30,7 +30,6 @@ width: 500px;
 }
 
 /* DETAILS MOVIE */
-
 .movieDetails__image {
   border: 0.5px solid #ffffff61;
 }
@@ -42,7 +41,9 @@ width: 500px;
 }
 
 .movieInfo {
-  margin-left: 20px;
+  margin-left: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .movieInfo__title:not(:first-child) {
@@ -57,3 +58,24 @@ width: 500px;
   margin-right: 10px;
 }
 
+/* ADDITIONAL INFO */
+.info {
+  padding: 20px 40px;
+  border-bottom: 1px solid #ffffff61;
+}
+.infoTitle {
+  margin-bottom: 10px;
+}
+.infoList {
+
+margin-left: 18px;
+}
+.infoItem {
+  list-style-type: disc;
+  margin-bottom: 10px;
+}
+
+.infoLink {
+  color: #fff;
+  text-decoration: none;
+}

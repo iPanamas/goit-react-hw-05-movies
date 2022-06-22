@@ -12,3 +12,17 @@ export const getMoviesById = async moviesId => {
   const response = await axios.get(`/movie/${moviesId}?api_key=${API_KEY}`);
   return response.data;
 };
+
+export const getMovieCast = async moviesId => {
+  const response = await axios.get(
+    `/movie/${moviesId}/credits?api_key=${API_KEY}`
+  );
+  return response.data.cast;
+};
+
+export const getMovieReviews = async moviesId => {
+  const response = await axios.get(
+    `/movie/${moviesId}/reviews?api_key=${API_KEY}`
+  );
+  return response.data.results;
+};

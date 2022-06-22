@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import AdditionalInfo from 'pages/AdditionalInfo';
+
+// Styles
 import s from './Pages.module.css';
+
 // API
 import * as api from 'services/api';
 
@@ -19,6 +23,7 @@ const MovieDetails = () => {
     };
     fetchMovieDetails();
   }, [moviesId]);
+
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w300';
   return (
     <>
@@ -47,6 +52,7 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
+      <AdditionalInfo />
     </>
   );
 };

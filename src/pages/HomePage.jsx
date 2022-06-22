@@ -25,10 +25,10 @@ const HomePage = () => {
     <>
       <h1 className={s.homeTitle}>Trending today</h1>
       <ul className={s.homeList}>
-        {movies.map(movie => (
-          <li className={s.homeItem} key={movie.id}>
-            <NavLink className={s.homeLink} to={`movies/${movie.id}`}>
-              {movie.original_title}
+        {movies.map(({ id, original_title }) => (
+          <li className={s.homeItem} key={id}>
+            <NavLink className={s.homeLink} to={`movies/${id}`}>
+              {original_title}
             </NavLink>
           </li>
         ))}
