@@ -1,10 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
+
 import AppBar from './AppBar/AppBar';
-import HomePage from './pages/HomePage';
-import SearchMovie from './pages/SearchMovie';
-import MovieDetails from './pages/MovieDetails';
-import NotFoundPage from './pages/NotFoundPage';
 import Container from './Container/Container';
+
+// PAGES
+import HomePage from '../pages/HomePage';
+import SearchMovie from '../pages/SearchMovie';
+import MovieDetails from '../pages/MovieDetails';
+import NotFoundPage from '../pages/NotFoundPage';
 
 const App = () => {
   return (
@@ -14,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<SearchMovie />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route path="/movies/:moviesId" element={<MovieDetails />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Container>

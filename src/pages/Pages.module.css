@@ -1,0 +1,59 @@
+/* HOME PAGE */
+.homeList {
+width: 500px;
+}
+.homeItem {
+  margin-bottom: 10px;
+  transition: transform 150ms linear;
+}
+
+.homeItem:hover {
+  transform: scale(1.1);
+}
+
+.homeLink {
+  color: #fff;
+  text-decoration: none;
+}
+
+.homeTitle {
+  margin-bottom: 10px;
+}
+
+/* MOVIE PAGE */
+.searchForm {
+  margin-top: 20px;
+}
+
+.searchButton {
+  margin-left: 5px;
+}
+
+/* DETAILS MOVIE */
+
+.movieDetails__image {
+  border: 0.5px solid #ffffff61;
+}
+
+.movieDetails {
+  display: flex;
+  padding: 40px;
+  border-bottom: 1px solid #ffffff61;
+}
+
+.movieInfo {
+  margin-left: 20px;
+}
+
+.movieInfo__title:not(:first-child) {
+  margin: 30px 0 10px 0;
+}
+
+.genreList {
+  display: flex;
+}
+
+.genreItem {
+  margin-right: 10px;
+}
+

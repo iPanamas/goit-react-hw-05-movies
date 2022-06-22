@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // API
 import * as api from 'services/api';
 
@@ -27,7 +27,9 @@ const HomePage = () => {
       <ul className={s.homeList}>
         {movies.map(movie => (
           <li className={s.homeItem} key={movie.id}>
-            <Link to={`movies/${movie.id}`}>{movie.original_title}</Link>
+            <NavLink className={s.homeLink} to={`movies/${movie.id}`}>
+              {movie.original_title}
+            </NavLink>
           </li>
         ))}
       </ul>
