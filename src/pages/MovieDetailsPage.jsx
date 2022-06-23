@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+
+import { RiReplyAllFill } from 'react-icons/ri';
+import { IconContext } from 'react-icons';
+
 import AdditionalInfo from 'pages/AdditionalInfo';
+import BackLink from 'components/BackLink/Backlink';
 
 // Styles
 import s from './Pages.module.css';
@@ -11,6 +16,9 @@ import * as api from 'services/api';
 const MovieDetails = () => {
   const { moviesId } = useParams();
   const [movies, setMovies] = useState(null);
+  const location = useLocation();
+
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -27,6 +35,13 @@ const MovieDetails = () => {
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w300';
   return (
     <>
+      <BackLink to={backLinkHref}>
+        <IconContext.Provider value={{ size: '2em', color: 'white' }}>
+          <RiReplyAllFill />
+          return back
+        </IconContext.Provider>
+      </BackLink>
+
       {movies && (
         <div className={s.movieDetails} key={movies.id}>
           <img

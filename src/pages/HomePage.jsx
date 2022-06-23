@@ -22,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <h1 className={s.homeTitle}>Trending today</h1>
       <ul className={s.homeList}>
         {movies.map(({ id, original_title }) => (
@@ -33,7 +33,7 @@ const HomePage = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Styles
-import s from './Cast.module.css';
+import s from './Pages.module.css';
 
 // API
 import * as api from 'services/api';
