@@ -1,0 +1,19 @@
+.searchList {
+display: inline-block;
+}
+.searchItem {
+  margin-bottom: 10px;
+  transition: transform 100ms linear;
+}
+
+.searchItem:hover {
+  transform: scale(1.15);
+}
+
+.searchLink {
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+

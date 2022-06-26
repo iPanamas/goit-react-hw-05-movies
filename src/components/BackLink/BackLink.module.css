@@ -1,6 +1,16 @@
 .backLink {
-  display: flex;
+  padding-left: 40px;
+  display: inline-flex;
   align-items: center;
   color: #fff;
   text-decoration: none;
+  transition: transform 100ms linear;
+}
+
+.backLink:hover {
+  transform: scale(1.15);
+}
+
+.backLink svg {
+  margin-right: 8px;
 }

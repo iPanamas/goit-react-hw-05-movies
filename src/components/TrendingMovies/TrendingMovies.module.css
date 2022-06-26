@@ -1,0 +1,24 @@
+/* HOME PAGE */
+.trendingList {
+display: inline-block;
+}
+.trendingItem {
+  margin-bottom: 7px;
+  transition: transform 100ms linear;
+}
+
+.trendingItem:hover {
+  transform: scale(1.15);
+}
+
+.trendingLink {
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.trendingTitle {
+  font-size: 50px;
+  margin-bottom: 30px;
+}

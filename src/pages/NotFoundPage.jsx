@@ -1,16 +1,7 @@
-import s from './Pages.module.css';
+import NotFound from 'components/NotFound/NotFound';
 
 const NotFoundPage = () => {
-  return (
-    <div className={s.notFound}>
-      <h1 className={s.notFoundTitle}>Page not found :(</h1>
-      <img
-        className={s.notFoundImage}
-        src="https://s00.yaplakal.com/pics/pics_original/1/2/5/12617521.png"
-        alt="images"
-      />
-    </div>
-  );
+  return <NotFound />;
 };
 
 export default NotFoundPage;

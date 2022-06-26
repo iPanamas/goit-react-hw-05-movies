@@ -1,0 +1,27 @@
+.movieDetails__image {
+  border: 0.5px solid #ffffff2b;
+}
+
+.movieDetails {
+  display: flex;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ffffff2b;
+}
+
+.movieInfo {
+  margin-left: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.movieInfo__title:not(:first-child) {
+  margin: 30px 0 10px 0;
+}
+
+.genreList {
+  display: flex;
+}
+
+.genreItem {
+  margin-right: 10px;
+}

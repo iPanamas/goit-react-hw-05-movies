@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Styles
-import s from './Pages.module.css';
+import s from './Reviews.module.css';
 
 // API
 import * as api from 'services/api';
@@ -25,18 +25,20 @@ const Reviews = () => {
 
   return (
     <div className={s.reviews}>
-      {reviews.length === 0 ? (
-        <h2 className={s.reviewsTitle}>
-          We dont have any reviews for this movie
-        </h2>
-      ) : (
+      {reviews && (
         <ul className={s.reviewsList}>
-          {reviews.map(({ author, content }) => (
-            <li className={s.reviewsItem} key={author}>
-              <h2 className={s.reviewsTitle}>Author: {author}</h2>
-              <p className={s.reviewsText}>{content}</p>
-            </li>
-          ))}
+          {reviews.length > 0 ? (
+            reviews.map(({ author, content }) => (
+              <li className={s.reviewsItem} key={author}>
+                <h2 className={s.reviewsTitle}>Author: {author}</h2>
+                <p className={s.reviewsText}>{content}</p>
+              </li>
+            ))
+          ) : (
+            <h2 className={s.reviewsTitle}>
+              We dont have any reviews for this movie
+            </h2>
+          )}
         </ul>
       )}
     </div>

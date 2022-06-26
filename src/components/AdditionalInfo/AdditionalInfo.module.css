@@ -1,0 +1,20 @@
+.info {
+  padding: 20px 40px;
+  border-bottom: 1px solid #ffffff2b;
+}
+.infoTitle {
+  margin-bottom: 10px;
+}
+.infoList {
+
+margin-left: 18px;
+}
+.infoItem {
+  list-style-type: disc;
+  margin-bottom: 10px;
+}
+
+.infoLink {
+  color: #fff;
+  text-decoration: none;
+}

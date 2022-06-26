@@ -1,24 +1,19 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 
-import { RiReplyAllFill } from 'react-icons/ri';
-import { IconContext } from 'react-icons';
-
-import AdditionalInfo from 'pages/AdditionalInfo';
+// Components
+import AdditionalInfo from '../components/AdditionalInfo/AdditionalInfo';
 import BackLink from 'components/BackLink/Backlink';
-
-// Styles
-import s from './Pages.module.css';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
 
 // API
 import * as api from 'services/api';
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
   const { moviesId } = useParams();
   const [movies, setMovies] = useState(null);
   const location = useLocation();
-
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location.state?.from ?? '/goit-react-hw-05-movies';
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -32,44 +27,14 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [moviesId]);
 
-  const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w300';
   return (
     <>
-      <BackLink to={backLinkHref}>
-        <IconContext.Provider value={{ size: '2em', color: 'white' }}>
-          <RiReplyAllFill />
-          return back
-        </IconContext.Provider>
-      </BackLink>
-
-      {movies && (
-        <div className={s.movieDetails} key={movies.id}>
-          <img
-            className={s.movieDetails__image}
-            src={`${BASE_IMG_URL}${movies.poster_path}`}
-            alt={movies.original_title}
-          />
-          <div className={s.movieInfo}>
-            <h1 className={s.movieInfo__title}>{movies.original_title}</h1>
-            <p className={s.movieInfo__text}>
-              User score: {movies.vote_average}
-            </p>
-            <h2 className={s.movieInfo__title}>Overview</h2>
-            <p className={s.movieInfo__text}>{movies.overview}</p>
-            <h2 className={s.movieInfo__title}>Genres</h2>
-            <ul className={s.genreList}>
-              {movies.genres.map(genre => (
-                <li className={s.genreItem} key={genre.name}>
-                  <p className={s.genreText}>{genre.name}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      <BackLink to={backLinkHref}>Back</BackLink>
+      {movies && <MovieDetails movies={movies} />}
       <AdditionalInfo />
+      <Outlet />
     </>
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;

@@ -6,14 +6,19 @@ import s from './Navigation.module.css';
 const Navigation = () => {
   return (
     <nav className={s.nav}>
-      <NavLink className={s.navLink} to="/">
-        Home
-      </NavLink>
-      <NavLink className={s.navLink} to="/movies">
-        Movies
-      </NavLink>
+      <ul className={s.navList}>
+        <li className={s.navItem}>
+          <NavLink className={s.navLink} to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className={s.navItem}>
+          <NavLink className={s.navLink} to="/movies">
+            Movies
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };
-
 export default Navigation;

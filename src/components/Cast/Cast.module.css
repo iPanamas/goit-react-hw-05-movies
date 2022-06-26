@@ -1,0 +1,40 @@
+.cast {
+  padding: 40px 0;
+}
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.castItem {
+  font-size: 16px;
+  color: #ffffffbd;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 200px;
+  transition: transform 150ms linear;
+}
+
+.castItem:hover {
+  transform: scale(1.03);
+}
+
+.castItem:nth-child(5n) {
+  margin-right: 0;
+}
+.castImage {
+  margin-bottom: 10px;
+}
+.castText__name {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.castText__character {
+    font-size: 13px;
+}
+
+.castImage {
+  border: 0.5px solid #ffffff2b;
+  object-fit: cover;
+}

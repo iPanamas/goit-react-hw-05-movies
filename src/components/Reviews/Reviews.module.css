@@ -1,0 +1,27 @@
+.reviews {
+  padding: 40px;
+}
+.reviewsItem {
+  border: 1px solid #ffffff2b;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  padding: 30px 40px;
+}
+.reviewsTitle {
+  text-align: center;
+}
+.reviewsText {
+  font-size: 14px;
+}
+
+/* NOT FOUND */
+.notFound {
+  text-align: center;
+}
+.notFoundTitle {
+  margin-bottom: 20px;
+}
+
+.notFoundImage {
+  background: #fff;
+}
