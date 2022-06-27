@@ -63,7 +63,7 @@ const SearchMoviePage = () => {
     const form = event.currentTarget;
     event.preventDefault();
 
-    if (searchQuery.trim() === '') {
+    if (searchQuery.toLowerCase().trim() === '') {
       return toast.info('Please enter movie name 🤦‍♂️');
     }
 
