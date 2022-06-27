@@ -37,7 +37,7 @@ const MovieDetailsPage = () => {
       try {
         const movieDetails = await api.getMoviesById(moviesId);
 
-        if (movieDetails) {
+        if (!movieDetails) {
           setStatus(Status.IDLE);
           return;
         }
