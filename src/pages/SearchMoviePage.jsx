@@ -20,7 +20,6 @@ const Status = {
 };
 
 const SearchMoviePage = () => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('idle');
   const [searchParams, setSearchParams] = useSearchParams();
@@ -55,29 +54,9 @@ const SearchMoviePage = () => {
     fetchMovieByKeyWord();
   }, [query]);
 
-  const handleChange = event => {
-    setSearchQuery(event.currentTarget.value);
-  };
-
-  const handleSubmit = event => {
-    const form = event.currentTarget;
-    event.preventDefault();
-
-    if (searchQuery.toLowerCase().trim() === '') {
-      return toast.info('Please enter movie name 🤦‍♂️');
-    }
-
-    setSearchParams({ query: form.elements.query.value });
-    setSearchQuery('');
-  };
-
   return (
     <>
-      <Form
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        value={searchQuery}
-      />
+      <Form setSearchParams={setSearchParams} />
       {status === Status.RESOLVED && (
         <SearchMovie movies={movies} location={location} />
       )}

@@ -1,10 +1,31 @@
-// PropTypes
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+// Toast notification
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Styles
 import s from './Form.module.css';
 
-const Form = ({ handleChange, handleSubmit, searchQuery }) => {
+const Form = ({ setSearchParams }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleChange = event => {
+    setSearchQuery(event.currentTarget.value);
+  };
+
+  const handleSubmit = event => {
+    const form = event.currentTarget;
+    event.preventDefault();
+
+    if (searchQuery.toLowerCase().trim() === '') {
+      return toast.info('Please enter movie name 🤦‍♂️');
+    }
+
+    setSearchParams({ query: form.elements.query.value });
+    setSearchQuery('');
+  };
+
   return (
     <form className={s.searchForm} onSubmit={handleSubmit}>
       <label className={s.searchLabel}>
@@ -21,12 +42,6 @@ const Form = ({ handleChange, handleSubmit, searchQuery }) => {
       </button>
     </form>
   );
-};
-
-Form.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  searchQuery: PropTypes.string.isRequired,
 };
 
 export default Form;

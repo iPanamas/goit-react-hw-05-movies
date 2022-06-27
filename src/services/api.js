@@ -31,6 +31,5 @@ export const getMovieByKeyWord = async searchQuery => {
   const response = await axios.get(
     `/search/movie?api_key=${API_KEY}&query=${searchQuery}&language=en-US&page=1&include_adult=false`
   );
-  console.log(response);
   return response.data.results;
 };
