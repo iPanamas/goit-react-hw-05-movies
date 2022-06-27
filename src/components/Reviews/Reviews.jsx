@@ -1,4 +1,7 @@
+// Hooks
 import { useState, useEffect } from 'react';
+
+// React-router
 import { useParams } from 'react-router-dom';
 
 // Toast notification

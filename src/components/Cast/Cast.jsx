@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
+// React-router
 import { useParams } from 'react-router-dom';
+
+// Hooks
+import { useState, useEffect } from 'react';
 
 // Toast notification
 import { toast } from 'react-toastify';

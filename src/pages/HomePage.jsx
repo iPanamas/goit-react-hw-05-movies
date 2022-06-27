@@ -1,4 +1,3 @@
-// Hooks
 import { useState, useEffect } from 'react';
 
 // Toast notification

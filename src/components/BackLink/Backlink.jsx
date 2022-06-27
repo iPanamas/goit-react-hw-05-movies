@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 
+// PropTypes
+import PropTypes from 'prop-types';
+
 // React-icon
 import { RiReplyAllFill } from 'react-icons/ri';
 import { IconContext } from 'react-icons';
@@ -17,4 +20,10 @@ const BackLink = ({ to, children }) => {
     </Link>
   );
 };
+
+BackLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string.isRequired,
+};
+
 export default BackLink;

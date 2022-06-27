@@ -1,4 +1,7 @@
+// Lazy-load
 import { lazy, Suspense } from 'react';
+
+// React-router
 import { Routes, Route } from 'react-router-dom';
 
 // Toast notification

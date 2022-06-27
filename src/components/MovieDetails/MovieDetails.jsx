@@ -1,3 +1,6 @@
+// PropTypes
+import PropTypes, { shape } from 'prop-types';
+
 // Styles
 import s from './MovieDetails.module.css';
 
@@ -25,8 +28,8 @@ const MovieDetails = ({ movies }) => {
         <p className={s.movieInfo__text}>{overview}</p>
         <h2 className={s.movieInfo__title}>Genres</h2>
         <ul className={s.genreList}>
-          {genres.map(({ name }) => (
-            <li className={s.genreItem} key={name}>
+          {genres.map(({ id, name }) => (
+            <li className={s.genreItem} key={id}>
               <p className={s.genreText}>{name}</p>
             </li>
           ))}
@@ -36,4 +39,18 @@ const MovieDetails = ({ movies }) => {
   );
 };
 
+MovieDetails.propTypes = {
+  movies: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+  }),
+};
 export default MovieDetails;

@@ -1,6 +1,8 @@
-import React from 'react';
+// React-loader
 import { ThreeDots } from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+
+// Styles
 import s from './Loader.module.css';
 
 const Loader = () => {

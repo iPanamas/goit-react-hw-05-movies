@@ -1,3 +1,4 @@
+// Styles
 import s from './NotFound.module.css';
 
 const NotFound = () => {

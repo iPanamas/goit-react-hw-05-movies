@@ -1,3 +1,6 @@
+// PropTypes
+import PropTypes from 'prop-types';
+
 // Styles
 import s from './Form.module.css';
 
@@ -19,4 +22,11 @@ const Form = ({ handleChange, handleSubmit, searchQuery }) => {
     </form>
   );
 };
+
+Form.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string.isRequired,
+};
+
 export default Form;
