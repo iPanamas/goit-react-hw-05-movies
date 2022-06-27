@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AppBar from './AppBar/AppBar';
 import Container from './Container/Container';
 import Loader from './Loader/Loader';
+
 // Pages
 const HomePage = lazy(() => import('../pages/HomePage'));
 const SearchMoviePage = lazy(() => import('../pages/SearchMoviePage'));

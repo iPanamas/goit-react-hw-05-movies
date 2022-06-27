@@ -1,23 +1,47 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Toast notification
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Styles
 import s from './Cast.module.css';
 
 // API
 import * as api from 'services/api';
 
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
+
 const Cast = () => {
   const { moviesId } = useParams();
   const [cast, setCast] = useState([]);
+  const [status, setStatus] = useState('idle');
 
   useEffect(() => {
+    setStatus(Status.PENDING);
+
     const fetchMovieCast = async () => {
       try {
         const movieCast = await api.getMovieCast(moviesId);
+
+        if (movieCast.length === 0) {
+          setStatus(Status.IDLE);
+          return;
+        }
+
+        setStatus(Status.RESOLVED);
         setCast(movieCast);
       } catch (error) {
-        console.log(error);
+        setStatus(Status.REJECTED);
+        return toast.error(
+          `Whoops something went wrong, please try again later 🙅‍♂️`
+        );
       }
     };
     fetchMovieCast();
@@ -29,9 +53,11 @@ const Cast = () => {
 
   return (
     <div className={s.cast}>
-      {cast.length === 0 ? (
-        <h1>We dont have any reviews for this movie</h1>
-      ) : (
+      {status === Status.IDLE && (
+        <h1>We dont have any cast for this movie 😔</h1>
+      )}
+
+      {status === Status.RESOLVED && (
         <ul className={s.castList}>
           {cast.map(({ cast_id, profile_path, name, character }) => (
             <li className={s.castItem} key={cast_id}>

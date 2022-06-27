@@ -9,9 +9,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import Form from 'components/Form/Form';
 import SearchMovie from 'components/SearchMovie/SearchMovie';
 
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
+
 const SearchMoviePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [status, setStatus] = useState('idle');
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const location = useLocation();
@@ -21,15 +29,27 @@ const SearchMoviePage = () => {
       return;
     }
 
+    setStatus(Status.PENDING);
+
     const fetchMovieByKeyWord = async () => {
       try {
         const getMovies = await api.getMovieByKeyWord(query);
+
         if (getMovies.length === 0) {
-          return toast.warning(`${query} not found`);
+          setStatus(Status.IDLE);
+          return toast.warning(`${query} not found 🤷‍♂️`);
         }
-        setMovies(getMovies);
+
+        if (getMovies.length > 1) {
+          setStatus(Status.RESOLVED);
+          setMovies(getMovies);
+          return toast.success(`Take are your movies 😊`);
+        }
       } catch (error) {
-        console.log(error);
+        setStatus(Status.REJECTED);
+        return toast.error(
+          `Whoops something went wrong, please try again later 🙅‍♂️`
+        );
       }
     };
     fetchMovieByKeyWord();
@@ -44,7 +64,7 @@ const SearchMoviePage = () => {
     event.preventDefault();
 
     if (searchQuery.trim() === '') {
-      return toast.info('Please enter movie name');
+      return toast.info('Please enter movie name 🤦‍♂️');
     }
 
     setSearchParams({ query: form.elements.query.value });
@@ -58,7 +78,9 @@ const SearchMoviePage = () => {
         handleSubmit={handleSubmit}
         value={searchQuery}
       />
-      <SearchMovie movies={movies} location={location} />
+      {status === Status.RESOLVED && (
+        <SearchMovie movies={movies} location={location} />
+      )}
     </>
   );
 };

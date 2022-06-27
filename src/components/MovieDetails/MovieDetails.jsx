@@ -18,7 +18,9 @@ const MovieDetails = ({ movies }) => {
       />
       <div className={s.movieInfo}>
         <h1 className={s.movieInfo__title}>{original_title}</h1>
-        <p className={s.movieInfo__text}>User score: {vote_average}</p>
+        <p className={s.movieInfo__text}>
+          User score: {vote_average.toFixed(1)}
+        </p>
         <h2 className={s.movieInfo__title}>Overview</h2>
         <p className={s.movieInfo__text}>{overview}</p>
         <h2 className={s.movieInfo__title}>Genres</h2>
