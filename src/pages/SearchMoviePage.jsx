@@ -40,11 +40,8 @@ const SearchMoviePage = () => {
           return toast.warning(`${query} not found 🤷‍♂️`);
         }
 
-        if (getMovies.length > 1) {
-          setStatus(Status.RESOLVED);
-          setMovies(getMovies);
-          return toast.success(`Take are your movies 😊`);
-        }
+        setStatus(Status.RESOLVED);
+        setMovies(getMovies);
       } catch (error) {
         setStatus(Status.REJECTED);
         return toast.error(
